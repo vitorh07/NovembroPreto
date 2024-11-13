@@ -1,0 +1,241 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+/* Resetando margens */
+* {
+    margin: 0;
+}
+
+/* Parallax */
+.parallax-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.parallax {
+    background-image: url("./img/parallax.jpg");
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(0.5) opacity(0.75);
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: black;
+    width: 0%;
+    transition: width 0.2s ease-in-out;
+}
+
+.progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #ffffff;
+    z-index: 99999;
+}
+
+/* Texto da legenda */
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+/* Containers */
+.container, .container3 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+}
+
+.container h2, .container3 h2, .container2 h2 {
+    font-size: 3rem;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.container p, .container3 p, .container2 p {
+    font-size: 1.5rem;
+    width: 75%;
+}
+
+.container3 {
+    color: #fff;
+    background-color: black;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(255,192,38,1) 0%, rgba(254,214,56,1) 37%, rgba(251,234,79,1) 78%);
+    color: black;
+}
+
+.left-box {
+    width: 50%;
+}
+
+.left-box img {
+    width: 75%;
+}
+
+.right-box {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container .video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Jogo da Memória */
+.jogo-da-memoria {
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(255,192,38,1) 0%, rgba(254,214,56,1) 37%, rgba(251,234,79,1) 78%);
+    text-align: center;
+    color: black;
+}
+
+.memory-game {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    width: 75%;
+    color: black;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+/* Botão de embaralhamento */
+#shuffle-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #111;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#shuffle-btn:hover {
+    background-color: #444;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container h2 {
+        font-size: 2.5rem;
+    }
+
+    .container p {
+        font-size: 1.25rem;
+    }
+
+    .container3 h2 {
+        font-size: 2.5rem;
+    }
+
+    .container3 p {
+        font-size: 1.25rem;
+    }
+
+    .container2 .left-box {
+        display: none;
+    }
+
+    .container2 .right-box {
+        width: 100%;
+    }
+
+    .memory-game {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 0.75rem;
+    }
+
+    .container3 h2 {
+        font-size: 1.5rem;
+    }
+
+    .container3 p {
+        font-size: 0.75rem;
+    }
+
+    .memory-game {
+        grid-template-columns: 1fr;
+    }
+}
